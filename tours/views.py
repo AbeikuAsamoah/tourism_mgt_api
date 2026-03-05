@@ -20,7 +20,7 @@ class IsAdminUserOrReadOnly(permissions.BasePermission):
             return True
         return request.user.is_authenticated and request.user.is_admin()
 
-class TourCreateView(generics.CreateAPIView):
+class CreateView(generics.CreateAPIView):
     queryset = Tour.objects.all()
     serializer_class = TourSerializer
     permission_classes = [IsAdminUserOrReadOnly]
@@ -29,13 +29,13 @@ class TourCreateView(generics.CreateAPIView):
         serializer.save(organizer=self.request.user)
 
 # Update an existing tour (only admin/staff)
-class TourUpdateView(generics.UpdateAPIView):
+class UpdateView(generics.UpdateAPIView):
     queryset = Tour.objects.all()
     serializer_class = TourSerializer
     permission_classes = [IsAdminUserOrReadOnly]
 
 # Delete a tour (only admin/staff)
-class TourDeleteView(generics.DestroyAPIView):
+class DeleteView(generics.DestroyAPIView):
     queryset = Tour.objects.all()
     serializer_class = TourSerializer
     permission_classes = [IsAdminUserOrReadOnly]

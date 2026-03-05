@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import CustomUser
 from .serializers import UserRegisterSerializer, UserDetailSerializer
-from rest_framework.authtoken.views import ObtainAuthTokenom django.shortcuts import render
+from rest_framework.authtoken.views import ObtainAuthToken
 
 # Create your views here.
 
